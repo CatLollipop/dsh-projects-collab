@@ -41,9 +41,7 @@ window.__ModuleLoader__.load({
       try { ctx.effect(() => ctx.locale.register(NS, { zh, en })) } catch {}
       ctx.effect(() => {
         const settings = ctx.slots.inject('settings.section', () => ctx.slots.register({ name: 'settings.section', id: 'projects-collab', order: 34, label: () => text(ctx, 'title') }, ProjectPage))
-        const sidebar = ctx.slots.inject('sidebar.panellist', () => ctx.slots.register({ name: 'sidebar.panellist', id: 'dsh-projects-collab', order: 24, label: () => text(ctx, 'title') }, () => h('span', { style: { fontSize: 15, lineHeight: 1 }, 'aria-hidden': 'true' }, '▦')))
-        const main = ctx.slots.inject('main', () => ctx.slots.register({ name: 'main', key: 'dsh-projects-collab' }, () => h(ProjectPage, null)))
-        return () => { try { settings?.(); } catch {} try { sidebar?.(); } catch {} try { main?.(); } catch {} }
+        return () => { try { settings?.(); } catch {} }
       })
     } }
   },
