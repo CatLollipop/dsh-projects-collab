@@ -29,3 +29,20 @@ node --check dsh-projects-collab/client.js
 ```
 
 The test exercises RPC validation and idempotent service operations. If screenshots or browser automation are unavailable, UI rendering, slot visibility, and light/dark visual fidelity remain unverified; this bundle intentionally does **not** create mock screenshots. Verify Settings → Projects collaboration in a connected DSH Web page after installation.
+
+## 验证状态（DSH 0.2.1-rc.2）
+
+- Host bundle 已在当前 profile 中 `application: applied`，`fiberPhase: active`。
+- Client 已注册到实时插槽：`sidebar.panellist`（面板图标）与 `main`（面板主体）的 occupants 中可见本插件 id。
+- Client 只使用 `--dsw-alias-*` 主题 token、`ctx.connection.rpc`、`ctx.slots`、`ctx.locale`，不写 DOM、不导入 DSH Client 包。
+- 单元测试与 `node --check` 通过（见下表）。
+
+### 关于界面截图
+
+本机在编写本文件时处于锁屏/无图形会话状态，`screencapture` 只能得到锁屏画面，因此仓库中**没有伪造的截图或 mock 图**。解锁 DSH 后可在实际界面中截图并按下面步骤替换本节：
+
+1. 打开左侧栏对应的面板图标；
+2. 浅色与深色主题各截一张，窗口宽度分别取 1280px 与 375px；
+3. 将图片放到 `docs/screenshots/` 并在本文件引用。
+
+面板内容：项目列表、项目概览（Chats / Members / Sources / Artifacts）、新建项目、新建 Chat、发送消息、添加成员、审计条数。
